@@ -45,11 +45,3 @@ test {
         events "PASSED", "STARTED", "FAILED"
     }
 }
-
-sourceSets {
-    main {
-        resources {
-            srcDirs = ['../models']
-        }
-    }
-}
