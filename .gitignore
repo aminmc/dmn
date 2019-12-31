@@ -1,0 +1,8 @@
+.idea
+build
+.gradle
+out/
+dist/
+jgiven-reports/
+.DS_Store
+workflow-resources

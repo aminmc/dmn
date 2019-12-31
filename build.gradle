@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'groovy'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:27.0.1-jre'
+    compile 'org.camunda.bpm:camunda-engine-plugin-spin:7.11.0'
+    compile 'org.camunda.bpm:camunda-engine:7.11.0'
+    compile 'org.camunda.commons:camunda-commons-utils:1.8.1'
+    compile 'org.camunda.spin:camunda-spin-dataformat-json-jackson:1.6.3'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'com.fasterxml.uuid:java-uuid-generator:3.2.0'
+    compile 'com.h2database:h2:1.4.199'
+    compile('org.projectlombok:lombok:1.18.6')
+    annotationProcessor('org.projectlombok:lombok:1.18.6')
+
+    testCompile 'org.camunda.bpm.assert:camunda-bpm-assert:4.0.0'
+    testCompile 'org.codehaus.groovy:groovy-all:2.5.6'
+    testCompile 'org.spockframework:spock-core:1.2-groovy-2.5'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.assertj:assertj-core:3.11.1'
+
+    testCompile 'org.camunda.bpm.extension:camunda-bpm-process-test-coverage:0.3.2'
+
+
+    testCompile('com.athaydes:spock-reports:1.6.2') {
+        transitive = false
+    }
+    testCompile 'org.slf4j:slf4j-api:1.7.13'
+    testCompile 'org.slf4j:slf4j-simple:1.7.13'
+}
+
+sourceCompatibility.java11
+targetCompatibility.java11
+
+test {
+    testLogging {
+        events "PASSED", "STARTED", "FAILED"
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['../models']
+        }
+    }
+}
